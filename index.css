@@ -1,0 +1,51 @@
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.list-box {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    padding: 1rem;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.toDo-input {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.completed {
+    display: flex;
+    justify-content: space-between;
+}
+
+#completed {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: line-through;
+    opacity: 40%;     
+}
+
+
+.check{
+    accent-color: black;
+    
+}
+
+.newToDo {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .newToDo:hover {
+color: red;
+} */

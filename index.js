@@ -6,9 +6,9 @@ const holidayToDoListComplete = [];
 
 
 const input = document.getElementById("toDo-input") 
-const button = document.getElementById("add-Button") 
+// const button = document.getElementById("add-Button") 
 
-button.onclick = addItem;
+input.onchange = addItem;
 
 function addItem() {
   const toDo = input.value;  

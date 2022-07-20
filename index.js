@@ -32,9 +32,12 @@ function toggleCheck(event) {
   const targetElement = event.target;
   const targetValue = targetElement.value;
   const targetParent = targetElement.parentNode;
+  const list = document.getElementById("list");
+
   if (targetElement.checked) {
     targetParent.id = "completed";
-    holidayToDoListComplete.push(targetValue);
+    list.insertBefore(targetParent, list.children[-1]);
+    holidayToDoListComplete.push(targetValue);        
   } else {
     const targetIndex = holidayToDoListComplete.indexOf(
       targetValue
@@ -65,7 +68,7 @@ function renderItems() {
       deleteToDoElement(i);
     };
     
-    const checkToDoEntry = document.createElement("input");
+    const checkToDoEntry = document.createElement("input");    
     checkToDoEntry.classList = "check";
     checkToDoEntry.id = "check";
     checkToDoEntry.value = itemValue;
@@ -73,7 +76,7 @@ function renderItems() {
 
     if (isACompletedItem) {
       toDoEntry.id = "completed";
-      checkToDoEntry.checked = true;
+      checkToDoEntry.checked = true;         
     }
     
     list.appendChild(toDoEntry);

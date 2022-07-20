@@ -53,6 +53,17 @@ header {
     list-style: none;
 }
 
+.list-box2 {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    padding: 1rem;
+    gap: 0.5rem;
+    list-style: none;
+}
+
 .label-input {
     color: rgba(0, 0, 0, 0.6);
     font-family: "Roboto","Helvetica","Arial",sans-serif;
@@ -99,14 +110,28 @@ header {
     grid-template-columns: 1fr 10fr auto;
 }
 
-.delete-button {
-    /* display: none; */
-    border: none;
-    background-color: #fff;
+.newToDo:hover #delete-button{
+    display: inline-block;
 }
+
+#delete-button{
+    display: none;
+}
+
+.delete-button {
+    border: none;
+    /* border: 0.4px solid grey;
+    border-radius: 50%; */
+    /* opacity: 50%; */
+    background-color: #fff;
+    
+}
+
+
 
 .delete-button:hover {
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
     transform: scale(1.22);
 }
+

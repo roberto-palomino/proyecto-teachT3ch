@@ -32,11 +32,18 @@ header {
 }
 
 .items-travel {
+   border: 1px solid lightgray;
    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 3px 2px 5px lightgray;
 }
 
 .list-box {
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -70,8 +77,10 @@ header {
 }
 
 #completed {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
+    display: grid;    
+    grid-template-columns: 1fr 10fr auto;
     text-decoration: line-through;
     opacity: 40%;     
 }
@@ -80,12 +89,14 @@ header {
 .check{
     accent-color: black;
     cursor: pointer;
-    
+    align-self: center;
 }
 
 .newToDo {
-    display: flex;
-    justify-content: space-between;
+     /* display: flex;
+    justify-content: space-between;  */
+    display: grid;    
+    grid-template-columns: 1fr 10fr auto;
 }
 
 .delete-button {
@@ -96,8 +107,6 @@ header {
 
 .delete-button:hover {
     cursor: pointer;
-  font-weight: 700;
-  transform: scale(1.15);
-  /* border-radius: 50%; */
-  /* border: 1px solid lightgray; */
+    font-weight: 600;
+    transform: scale(1.22);
 }

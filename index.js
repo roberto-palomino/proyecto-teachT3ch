@@ -58,15 +58,10 @@ function renderItems() {
     const isACompletedItem = holidayToDoListComplete.find((item) => item === itemValue);
     const toDoEntry = document.createElement("li");
     toDoEntry.className = "newToDo";
-    const newToDoText = document.createTextNode(itemValue);
-    toDoEntry.appendChild(newToDoText);
+    // const newToDoText = document.createTextNode(itemValue);
+    // toDoEntry.appendChild(newToDoText);
     
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "❌";
-    toDoEntry.appendChild(deleteButton);
-    deleteButton.onclick = () => {
-      deleteToDoElement(i);
-    };
+    
     
     const checkToDoEntry = document.createElement("input");    
     checkToDoEntry.classList = "check";
@@ -78,6 +73,20 @@ function renderItems() {
       toDoEntry.id = "completed";
       checkToDoEntry.checked = true;         
     }
+
+    const labelToDoEntry = document.createElement("label"); 
+    labelToDoEntry.setAttribute("for", checkToDoEntry)
+    const labelToDoText = document.createTextNode(itemValue);
+    toDoEntry.appendChild(labelToDoText)
+
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button"
+    deleteButton.textContent = "X";
+    toDoEntry.appendChild(deleteButton);
+    deleteButton.onclick = () => {
+      deleteToDoElement(i);
+    };
     
     list.appendChild(toDoEntry);
     console.log("Valor de array completo:", holidayToDoList);

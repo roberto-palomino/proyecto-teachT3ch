@@ -1,13 +1,23 @@
 'use strict'
 
-const holidayToDoList = [];
-const holidayToDoListComplete = [];
 
+let holidayToDoList = [];
+let holidayToDoListComplete = [];
 
+const allElementsList = localStorage.getItem("items");
+if ( allElementsList !== null) {
+holidayToDoList = JSON.parse(allElementsList );
+
+}
+
+const completedElementsList = localStorage.getItem("itemsCompleted");
+if ( completedElementsList !== null) {
+holidayToDoListComplete = JSON.parse(completedElementsList );
+
+}
 
 const input = document.getElementById("toDo-input") 
 // const button = document.getElementById("add-Button") 
-
 input.onchange = addItem;
 
 function addItem() {
@@ -20,38 +30,47 @@ function addItem() {
 
 function uncheckToDoElement(i) {
   holidayToDoListComplete.splice(i, 1);
+  localStorage.setItem("itemsCompleted", JSON.stringify(holidayToDoListComplete))
+  // localStorage.setItem("items", JSON.stringify(holidayToDoList))
 }
 
 function deleteToDoElement(i) {
   holidayToDoList.splice(i, 1);
-  console.log("Valor de array completo:", holidayToDoList);
+  holidayToDoListComplete.splice(i, 1);
+  localStorage.removeItem(i);
   renderItems();
 }
+
 
 function toggleCheck(event) {
   const targetElement = event.target;
   const targetValue = targetElement.value;
   const targetParent = targetElement.parentNode;
   const list = document.getElementById("list");
+  const listCompleted = document.getElementById("list-Completed");
 
   if (targetElement.checked) {
     targetParent.id = "completed";
     list.insertBefore(targetParent, list.children[-1]);
-    holidayToDoListComplete.push(targetValue);        
+    holidayToDoListComplete.push(targetValue);
+    listCompleted.appendChild(targetParent);
+    localStorage.setItem("itemsCompleted", JSON.stringify(holidayToDoListComplete))         
+    
+    
   } else {
     const targetIndex = holidayToDoListComplete.indexOf(
       targetValue
       );
+      console.log("Valor de target",targetValue );
     targetParent.id = "";
     uncheckToDoElement(targetIndex);
+    
+    list.appendChild(targetParent);
   }
-
-  console.log("Valor de items completados:", holidayToDoListComplete);
-  console.log("Valor de la lista de items:", holidayToDoList);
 }
 
 function renderItems() {
-  list.innerHTML = "";
+  list.innerHTML = "";  
 
   for (const i in holidayToDoList) {
     const itemValue = holidayToDoList[i];
@@ -71,7 +90,9 @@ function renderItems() {
 
     if (isACompletedItem) {
       toDoEntry.id = "completed";
-      checkToDoEntry.checked = true;         
+      checkToDoEntry.checked = true;
+      
+            //  console.log("Lista de tareas completadas:", holidayToDoListComplete);
     }
 
     const labelToDoEntry = document.createElement("label"); 
@@ -82,6 +103,7 @@ function renderItems() {
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete-button"
+    deleteButton.id = "delete-button"
     deleteButton.textContent = "X";
     toDoEntry.appendChild(deleteButton);
     deleteButton.onclick = () => {
@@ -89,13 +111,20 @@ function renderItems() {
     };
     
     list.appendChild(toDoEntry);
-    console.log("Valor de array completo:", holidayToDoList);
     
-
+    console.log("Entrada toDoEntry:", toDoEntry);
+    localStorage.setItem("items", JSON.stringify(holidayToDoList))
+    
+    
+    
     checkToDoEntry.addEventListener("change", toggleCheck);
   }
+  console.log("Valor de items completados:", holidayToDoListComplete);
+  console.log("Valor de la lista de items:", holidayToDoList);
 } 
 renderItems()
+
+
 
 
   

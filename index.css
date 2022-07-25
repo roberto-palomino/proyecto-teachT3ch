@@ -4,6 +4,26 @@
     font-weight: 400;
 }
 
+.darkmode {
+    
+    background-color: #202124;
+	color: #bdc1c6;   
+}
+
+.darkmode label {
+    color: #bdc1c6;  
+}
+
+.darkmode #countTextId {
+    color: #bdc1c6;  
+}
+
+.darkmode header {
+    background-color: #101014;
+    color: #bdc1c6;
+    
+}
+
 main {
     margin-top: 2rem;
     display: flex;
@@ -14,9 +34,12 @@ main {
 }
 
 header {
+    display: flex;
+    align-items: center;
     color: #fff;
     padding: 1rem;
     background-color: #0d4b81;
+    justify-content: space-between;    
 }
 
 .section-title {
@@ -43,8 +66,7 @@ header {
 }
 
 .list-box {
-    /* border: 1px solid lightgray; */
-    border-radius: 5px;
+     border-radius: 5px;
     display: flex;
     flex-direction: column;
     width: 20rem;
@@ -54,8 +76,11 @@ header {
 }
 
 .list-box2 {
+    margin-top: 1rem;
     border: 1px solid lightgray;
-    border-radius: 5px;
+    border-bottom-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
     display: flex;
     flex-direction: column;
     width: 20rem;
@@ -66,9 +91,7 @@ header {
 
 .label-input {
     color: rgba(0, 0, 0, 0.6);
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
-   
-    
+    font-family: "Roboto","Helvetica","Arial",sans-serif;    
 }
 
 .toDo-input {
@@ -88,14 +111,25 @@ header {
 }
 
 #completed {
-    /* display: flex;
-    justify-content: space-between; */
     display: grid;    
     grid-template-columns: 1fr 10fr auto;
     text-decoration: line-through;
     opacity: 40%;     
 }
 
+#countTextId{
+    color: rgba(0, 0, 0, 0.6);
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+
+#countTextId:hover {
+    cursor: pointer;    
+    color: inherit;    
+}
+
+.countTextVisibility{
+    display: none;
+}
 
 .check{
     accent-color: black;
@@ -104,8 +138,6 @@ header {
 }
 
 .newToDo {
-     /* display: flex;
-    justify-content: space-between;  */
     display: grid;    
     grid-template-columns: 1fr 10fr auto;
 }
@@ -120,18 +152,34 @@ header {
 
 .delete-button {
     border: none;
-    /* border: 0.4px solid grey;
-    border-radius: 50%; */
-    /* opacity: 50%; */
-    background-color: #fff;
-    
+    background-color: #fff;   
 }
-
-
 
 .delete-button:hover {
     cursor: pointer;
     font-weight: 700;
     transform: scale(1.22);
 }
+
+@media (min-width: 450px) {
+    body {
+        width: 100%;
+    }
+
+    .title-holidays {
+        min-width: auto;
+    }
+    .items-travel {
+        min-width: auto;
+        min-width: auto;
+        border: none;
+        box-shadow: none;
+
+    }
+    .dark-mode-toggle {
+        margin-right: 1rem;
+    }
+}
+
+
 

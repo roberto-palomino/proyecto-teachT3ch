@@ -5,45 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css">
     <title>Organizador vacaciones</title>
 </head>
-
-<body>
-    <header>
-        <h1 class="title-holidays">Organizador de vacaciones</h1>
-    </header>
-    <main>
-        <section class="items-travel">
-            <h2 class="section-title">
-                Cosas para llevar a la playa
-            </h2 >
-            <div class="list-container">
-            <label for="toDo-input" class="label-input">Añadir</label>
-            <input  id="toDo-input"  class="toDo-input" type="text">
-        </div>
-        <div>
-            <!-- <button id="add-Button"  >Añadir</button> -->
-            <ul class="list-box" id="list"></ul>
-               
-        </div>
-        <div>
-            <ul class="list-box2" id="list-Completed"></ul>
-
-        </div>
-        </section>
-      
-        <!-- <section class="weather-next-days">
-            <h2>
-                Tiempo para los próximos días
-            </h2>
-
-        </section> -->
-    </main>
-
-
-    <script src="index.js"></script>
-
-</body>
-
+    <body id="body">
+        <header>
+            <h1 class="title-holidays">Organizador de vacaciones</h1>
+            <button id="dark-mode-toggle" class="dark-mode-toggle">
+                Dark Theme</button>
+        </header>
+        <main>
+            <section class="items-travel">
+                <h2 class="section-title">
+                    Bloc de notas
+                </h2>
+                <div class="list-container">
+                    <label for="toDo-input" class="label-input">Añadir</label>
+                    <input id="toDo-input" class="toDo-input" type="text">
+                </div>
+                <div class="list-container">                
+                    <ul class="list-box" id="list"></ul>
+                </div>
+                <div class="list-completed-container">
+                    <div role="button" aria-label="Desplegar" tabindex="0" id="accordion-button">
+                        <span>></span>
+                        <span id="completed-total"></span>
+                    </div>
+                    <ul class="list-box2" id="list-Completed">                   
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <script src="index.js"></script>
+    </body>
 </html>

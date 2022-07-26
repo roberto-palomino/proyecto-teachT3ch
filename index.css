@@ -4,8 +4,7 @@
     font-weight: 400;
 }
 
-.darkmode {
-    
+.darkmode {    
     background-color: #202124;
 	color: #bdc1c6;   
 }
@@ -18,14 +17,39 @@
     color: #bdc1c6;  
 }
 
+.darkmode #toDo-input {
+    background-color: #202124;
+	color: #bdc1c6;  
+}
+
 .darkmode header {
     background-color: #101014;
-    color: #bdc1c6;
-    
+    color: #bdc1c6;    
+}
+
+.dark-mode-toggle {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 5px 10px;
+    border: 1px solid #222222;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+    background: #fff;
+    color: #222222;
+}
+
+.dark-mode-toggle:hover {
+    border-color: #000000;
+    background: #f7f7f7;
 }
 
 main {
-    margin-top: 2rem;
+    height: 100vh;
+    /* background-image: url(https://img.freepik.com/premium-vector/light-orange-watercolor-abstract-decorative-background_98551-694.jpg?w=2000); */
+    background-repeat: no-repeat;    
+    background-size: 100%;
+    /* margin-top: 2rem; */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -55,14 +79,11 @@ header {
 }
 
 .items-travel {
-   border: 1px solid lightgray;
-   
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding: 2rem;
-    border-radius: 5px;
-    box-shadow: 3px 2px 5px lightgray;
+    font-size: large;    
 }
 
 .list-box {
@@ -76,17 +97,31 @@ header {
 }
 
 .list-box2 {
-    margin-top: 1rem;
-    border: 1px solid lightgray;
-    border-bottom-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
+    margin-top: 1rem;   
     display: flex;
     flex-direction: column;
     width: 20rem;
     padding: 1rem;
     gap: 0.5rem;
     list-style: none;
+}
+
+.list-completed-container {
+    margin-top: 1rem;
+    border: 1px solid lightgray;
+    border-bottom-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    display: flex;    
+    padding: 1rem;
+    gap: 0.8rem;
+    list-style: none;
+}
+
+.list-completed-container:hover {
+    cursor: pointer;
+    font-weight: 700;
+    transform: scale(1.02);
 }
 
 .label-input {
@@ -161,7 +196,7 @@ header {
     transform: scale(1.22);
 }
 
-@media (min-width: 450px) {
+@media (max-width: 450px) {
     body {
         width: 100%;
     }

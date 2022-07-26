@@ -128,26 +128,37 @@ function renderItems() {
     checkInput.addEventListener("change", toggleCheck);
   }  
   const totalSpan = document.getElementById("completed-total");
-  const accordionButton = document.getElementById("accordion-button");
-  totalSpan.innerHTML = `${holidayToDoListComplete.length} elementos completados`;
-
-  accordionButton.onclick = () => {
-    listCompleted.classList.toggle("countTextVisibility");
-  };
+  const accordionButton = document.getElementById("completed-icon");
+  accordionButton.innerHTML = "˃"
+  totalSpan.innerHTML = `${holidayToDoListComplete.length} elementos completados`;  
   
-  console.log("Valor de items completados:", holidayToDoListComplete);
-  console.log("Valor de la lista de items:", holidayToDoList);  
+  totalSpan.onclick = () => {
+    listCompleted.classList.toggle("countTextVisibility");
+    accordionButton.classList.toggle("opened");
+    if ( accordionButton.className === "opened") {
+      accordionButton.innerText = "˃"
+    } else {
+      accordionButton.innerText = "˅"
+    } 
+  };  
 } 
 renderItems()
 
 
 const darkModeToggle = document.getElementById("dark-mode-toggle");
-darkModeToggle.innerText = "Modo noche"
-const body = document.getElementById("body")
-
+darkModeToggle.innerText = "Dark Theme";
+const body = document.getElementById("body");
 darkModeToggle.addEventListener('click', () => {
+  
   body.classList.toggle("darkmode");
   localStorage.setItem("darkmode", body.classList);
+ 
+  if ( body.className === "darkmode") {
+    darkModeToggle.innerText = "Light Theme"
+  } else {
+    darkModeToggle.innerText = "Dark Theme"
+  }
+
   });
 window.onload = () => {
   const themeClass = localStorage.getItem("darkmode");

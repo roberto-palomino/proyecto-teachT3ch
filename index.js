@@ -1,6 +1,5 @@
 'use strict'
 
-
 let holidayToDoList = [];
 let holidayToDoListComplete = [];
 
@@ -8,7 +7,6 @@ const allElementsList = localStorage.getItem("items");
 if ( allElementsList !== null) {
   holidayToDoList = JSON.parse(allElementsList );  
 }
-
 const completedElementsList = localStorage.getItem("itemsCompleted");
 if ( completedElementsList !== null) {
   holidayToDoListComplete = JSON.parse(completedElementsList );  
@@ -83,7 +81,8 @@ function generateItem(itemValue) {
   checkInput.value = itemValue;
   listElement.appendChild(checkInput).type = "checkbox";      
   
-  const labelToDoEntry = document.createElement("label"); 
+  const labelToDoEntry = document.createElement("label");
+  labelToDoEntry.classList = "label-input";
   labelToDoEntry.setAttribute("for", "check");
   const labelToDoText = document.createTextNode(itemValue);
   labelToDoEntry.appendChild(labelToDoText);
@@ -127,38 +126,41 @@ function renderItems() {
     listCompleted.appendChild(listElement)
     checkInput.addEventListener("change", toggleCheck);
   }  
-  const totalSpan = document.getElementById("completed-total");
-  const accordionButton = document.getElementById("completed-icon");
-  accordionButton.innerHTML = "˃"
-  totalSpan.innerHTML = `${holidayToDoListComplete.length} elementos completados`;  
-  
-  totalSpan.onclick = () => {
-    listCompleted.classList.toggle("countTextVisibility");
-    accordionButton.classList.toggle("opened");
-    if ( accordionButton.className === "opened") {
-      accordionButton.innerText = "˃"
-    } else {
-      accordionButton.innerText = "˅"
-    } 
-  };  
-} 
-renderItems()
 
+
+  const totalSpan = document.getElementById("completed-total");
+  const menuAccordion = document.getElementById("menu-accordion-button");
+  const accordionButton = document.getElementById("completed-icon");
+  totalSpan.innerText = `${holidayToDoListComplete.length} elementos completados`;  
+  accordionButton.innerText = "expand_more";
+  menuAccordion.onclick = () => {
+  listCompleted.classList.toggle("countTextVisibility");   
+      
+      if (accordionButton.innerText === "expand_more") {
+        accordionButton.innerText = "chevron_right"
+    } else {      
+      accordionButton.innerText = "expand_more";
+    }
+  } 
+  // console.log("Lista completa", holidayToDoList);
+  // console.log("Lista de completados", holidayToDoListComplete);
+    };        
+    renderItems()
+    
 
 const darkModeToggle = document.getElementById("dark-mode-toggle");
-darkModeToggle.innerText = "Dark Theme";
+darkModeToggle.textContent = "Dark Theme";
 const body = document.getElementById("body");
 darkModeToggle.addEventListener('click', () => {
   
   body.classList.toggle("darkmode");
   localStorage.setItem("darkmode", body.classList);
  
-  if ( body.className === "darkmode") {
-    darkModeToggle.innerText = "Light Theme"
+  if (body.className === "darkmode") {
+    darkModeToggle.textContent = "Light Theme"
   } else {
-    darkModeToggle.innerText = "Dark Theme"
+    darkModeToggle.textContent = "Dark Theme"
   }
-
   });
 window.onload = () => {
   const themeClass = localStorage.getItem("darkmode");

@@ -7,39 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="index.css">
-    <title>Organizador vacaciones</title>
+    <title>Vacation Help App</title>
 </head>
     <body id="body">
         <header>
-            <h1 class="title-holidays">Organizador de vacaciones</h1>
+            <h1 class="title-holidays">Vacation Help App</h1>
             <button id="dark-mode-toggle" class="dark-mode-toggle">
-                </button>
+            </button>
         </header>
         <main>
             <section class="items-travel">
                 <h2 class="section-title">
-                    Bloc de notas
+                    Para llevar: vacaciones 2022
                 </h2>
                 <div class="list-container">
                     <label for="toDo-input" class="label-input">Añadir</label>
                     <input id="toDo-input" class="toDo-input" type="text">
                 </div>
-                <div class="list-container">                
+                <div class="list-container">
                     <ul class="list-box" id="list"></ul>
                 </div>
-                
-                <div class="list-completed-container" role="button" aria-label="Desplegar" tabindex="0" id="menu-accordion-button">
-                    <!-- <span id="completed-icon">
-                                        </span> -->
+                <div class="list-completed-container" role="button" aria-label="Desplegar" tabindex="0"
+                    id="menu-accordion-button">
                     <span class="material-symbols-outlined" id="completed-icon">
-                        <!-- expand_more -->
-                        <!-- chevron_right -->
+    
                     </span>
                     <span id="completed-total"></span>
                 </div>
                 <ul class="list-box2" id="list-Completed">
                 </ul>
-                
+    
             </section>
         </main>
         <script src="index.js"></script>

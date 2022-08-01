@@ -77,8 +77,7 @@ header {
 }
 
 .section-title {
-    margin-bottom: 2rem;
-    margin-left: 3rem; 
+    margin-bottom: 2rem;   
 }
 
 .list-container {
@@ -217,14 +216,14 @@ header {
     .title-holidays {
         min-width: auto;
     }
+    
     .items-travel {
         min-width: auto;
         min-width: auto;
         border: none;
         box-shadow: none;
-        margin-left: 4rem;
-
     }
+
     .dark-mode-toggle {
         margin-right: 1rem;
     }    

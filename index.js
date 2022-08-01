@@ -101,51 +101,50 @@ function generateItem(itemValue) {
 
 function renderItems() {
   const list = document.getElementById("list");
-  const listCompleted = document.getElementById("list-Completed")
+  const listCompleted = document.getElementById("list-Completed");
 
-  list.innerHTML = "";  
-  listCompleted.innerHTML = ""
-  
+  list.innerHTML = "";
+  listCompleted.innerHTML = "";
+
   for (const generalIndex in holidayToDoList) {
     const itemValue = holidayToDoList[generalIndex];
-    const { listElement, checkInput} = generateItem(itemValue)
-    
-    const isACompletedItem = holidayToDoListComplete.find((item) => item === itemValue);
+    const { listElement, checkInput } = generateItem(itemValue);
+
+    const isACompletedItem = holidayToDoListComplete.find(
+      (item) => item === itemValue
+    );
     if (!isACompletedItem) {
-      list.appendChild(listElement);      
+      list.appendChild(listElement);
     }
     checkInput.addEventListener("change", toggleCheck);
-  }  
- 
+  }
+
   for (const completedIndex in holidayToDoListComplete) {
     const itemValue = holidayToDoListComplete[completedIndex];
-    const { listElement, checkInput} = generateItem(itemValue) 
-    listElement.id = "completed"
-    checkInput.checked = true;    
-    
-    listCompleted.appendChild(listElement)
-    checkInput.addEventListener("change", toggleCheck);
-  }  
+    const { listElement, checkInput } = generateItem(itemValue);
+    listElement.id = "completed";
+    checkInput.checked = true;
 
+    listCompleted.appendChild(listElement);
+    checkInput.addEventListener("change", toggleCheck);
+  }
 
   const totalSpan = document.getElementById("completed-total");
   const menuAccordion = document.getElementById("menu-accordion-button");
   const accordionButton = document.getElementById("completed-icon");
-  totalSpan.innerText = `${holidayToDoListComplete.length} elementos completados`;  
+  totalSpan.innerText = `${holidayToDoListComplete.length} elementos completados`;
   accordionButton.innerText = "expand_more";
   menuAccordion.onclick = () => {
-  listCompleted.classList.toggle("countTextVisibility");   
-      
-      if (accordionButton.innerText === "expand_more") {
-        accordionButton.innerText = "chevron_right"
-    } else {      
+    listCompleted.classList.toggle("countTextVisibility");
+
+    if (accordionButton.innerText === "expand_more") {
+      accordionButton.innerText = "chevron_right";
+    } else {
       accordionButton.innerText = "expand_more";
     }
-  } 
-  // console.log("Lista completa", holidayToDoList);
-  // console.log("Lista de completados", holidayToDoListComplete);
-    };        
-    renderItems()
+  };
+}
+renderItems();
     
 
 const darkModeToggle = document.getElementById("dark-mode-toggle");
@@ -161,10 +160,13 @@ darkModeToggle.addEventListener('click', () => {
   } else {
     darkModeToggle.textContent = "Dark Theme"
   }
+  localStorage.setItem("theme-mode", darkModeToggle.textContent);
   });
 window.onload = () => {
   const themeClass = localStorage.getItem("darkmode");
   body.classList = themeClass;
+  const themeMode = localStorage.getItem("theme-mode");
+  darkModeToggle.textContent = themeMode;
 }
 
 

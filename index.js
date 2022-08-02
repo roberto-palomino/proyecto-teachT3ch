@@ -77,7 +77,7 @@ function generateItem(itemValue) {
   
   const checkInput = document.createElement("input");    
   checkInput.classList = "check";
-  checkInput.id = "check";
+  // checkInput.id = "check";
   checkInput.value = itemValue;
   listElement.appendChild(checkInput).type = "checkbox";      
   
@@ -91,7 +91,7 @@ function generateItem(itemValue) {
   const deleteButton = document.createElement("button");
   deleteButton.className = "delete-button"
   deleteButton.id = "delete-button"
-  deleteButton.textContent = "X";
+  deleteButton.textContent = "X";  
   listElement.appendChild(deleteButton);
   deleteButton.onclick = () => {
       handleDelete(itemValue);
@@ -136,13 +136,22 @@ function renderItems() {
   accordionButton.innerText = "expand_more";
   menuAccordion.onclick = () => {
     listCompleted.classList.toggle("countTextVisibility");
+    // localStorage.setItem("countTextVisibility",listCompleted.classList);
 
     if (accordionButton.innerText === "expand_more") {
       accordionButton.innerText = "chevron_right";
     } else {
       accordionButton.innerText = "expand_more";
     }
+    // localStorage.setItem("arrow-position", accordionButton.innerText)
   };
+  // window.onload = () => {
+  //   const totalElementsVisibility = localStorage.getItem("countTextVisibility");
+  //   listCompleted.classList = totalElementsVisibility;
+  //   const accordionArrow = localStorage.getItem("arrow-position");
+  //   accordionButton.innerText = accordionArrow;
+  // }
+  
 }
 renderItems();
     
@@ -168,6 +177,26 @@ window.onload = () => {
   const themeMode = localStorage.getItem("theme-mode");
   darkModeToggle.textContent = themeMode;
 }
+
+
+// CÓDIGO PARA LA CREACION DE NUEVAS NOTAS (IN PROCESS):
+
+function newNote() {
+  const noteSection = document.querySelector("main");
+  const newDiv = document.createElement("div");
+  newDiv.classList = "new-note";
+
+  const newTitle = document.createElement("input");
+  const newListName = newTitle.value;
+  newTitle.classList = "new-title";
+  const title = document.createTextNode(newListName)
+  newDiv.appendChild(title)
+  newDiv.appendChild(newTitle)
+  noteSection.appendChild(newDiv)
+  console.log(newListName);
+}
+const newDivNote = document.getElementById("new-note");
+newDivNote.onclick = newNote
 
 
 

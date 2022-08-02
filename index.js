@@ -136,23 +136,16 @@ function renderItems() {
   accordionButton.innerText = "expand_more";
   menuAccordion.onclick = () => {
     listCompleted.classList.toggle("countTextVisibility");
-    // localStorage.setItem("countTextVisibility",listCompleted.classList);
-
+    
     if (accordionButton.innerText === "expand_more") {
       accordionButton.innerText = "chevron_right";
     } else {
       accordionButton.innerText = "expand_more";
     }
-    // localStorage.setItem("arrow-position", accordionButton.innerText)
-  };
-  // window.onload = () => {
-  //   const totalElementsVisibility = localStorage.getItem("countTextVisibility");
-  //   listCompleted.classList = totalElementsVisibility;
-  //   const accordionArrow = localStorage.getItem("arrow-position");
-  //   accordionButton.innerText = accordionArrow;
-  // }
-  
+   
+  }; 
 }
+
 renderItems();
     
 
@@ -179,24 +172,6 @@ window.onload = () => {
 }
 
 
-// CÓDIGO PARA LA CREACION DE NUEVAS NOTAS (IN PROCESS):
-
-function newNote() {
-  const noteSection = document.querySelector("main");
-  const newDiv = document.createElement("div");
-  newDiv.classList = "new-note";
-
-  const newTitle = document.createElement("input");
-  const newListName = newTitle.value;
-  newTitle.classList = "new-title";
-  const title = document.createTextNode(newListName)
-  newDiv.appendChild(title)
-  newDiv.appendChild(newTitle)
-  noteSection.appendChild(newDiv)
-  console.log(newListName);
-}
-const newDivNote = document.getElementById("new-note");
-newDivNote.onclick = newNote
 
 
 

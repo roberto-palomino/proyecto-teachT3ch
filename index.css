@@ -208,23 +208,6 @@ header {
     transform: scale(1.22);
 }
 
-
-.new-note {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: flex-start; */
-    padding: 2rem;
-    border: 1px solid lightgray;
-    font-size: large;
-    margin-top: 2rem;
-    border-radius: 8px;
-    box-shadow: 5px 10px 5px 0px #9a9c9f91;
-}
-
-
-
-
-
 @media (max-width: 600px) {
     body {
         width: 100%;

@@ -133,7 +133,7 @@ function renderItems() {
   const menuAccordion = document.getElementById("menu-accordion-button");
   const accordionButton = document.getElementById("completed-icon");
   totalSpan.innerText = `${holidayToDoListComplete.length} elementos completados`;
-  accordionButton.innerText = "expand_more";
+  // accordionButton.innerText = "expand_more";
   menuAccordion.onclick = () => {
     listCompleted.classList.toggle("countTextVisibility");
     
